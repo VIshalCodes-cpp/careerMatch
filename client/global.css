@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@layer base {
+  :root {
+    --background: 40 33% 96%; --foreground: 150 12% 14%; --card: 40 33% 96%; --card-foreground: 150 12% 14%;
+    --popover: 40 33% 96%; --popover-foreground: 150 12% 14%; --primary: 150 12% 14%; --primary-foreground: 40 33% 96%;
+    --secondary: 38 22% 91%; --secondary-foreground: 150 12% 14%; --muted: 38 22% 91%; --muted-foreground: 150 7% 46%;
+    --accent: 12 68% 59%; --accent-foreground: 40 33% 96%; --destructive: 0 70% 53%; --destructive-foreground: 0 0% 100%;
+    --border: 150 12% 14% / 0.12; --input: 150 12% 14% / 0.16; --ring: 12 68% 59%; --radius: .6rem;
+    --sidebar-background: 38 22% 91%; --sidebar-foreground: 150 12% 14%; --sidebar-primary: 150 12% 14%; --sidebar-primary-foreground: 40 33% 96%; --sidebar-accent: 40 33% 96%; --sidebar-accent-foreground: 150 12% 14%; --sidebar-border: 150 12% 14% / .12; --sidebar-ring: 12 68% 59%;
+  }
+  .dark {
+    --background: 150 11% 10%; --foreground: 40 26% 94%; --card: 150 10% 13%; --card-foreground: 40 26% 94%;
+    --popover: 150 10% 13%; --popover-foreground: 40 26% 94%; --primary: 40 26% 94%; --primary-foreground: 150 11% 10%;
+    --secondary: 150 8% 17%; --secondary-foreground: 40 26% 94%; --muted: 150 8% 17%; --muted-foreground: 40 12% 65%;
+    --accent: 12 68% 61%; --accent-foreground: 150 11% 10%; --border: 40 26% 94% / 0.14; --input: 40 26% 94% / 0.2;
+    --sidebar-background: 150 10% 13%; --sidebar-foreground: 40 26% 94%; --sidebar-primary: 12 68% 61%; --sidebar-primary-foreground: 150 11% 10%; --sidebar-accent: 150 8% 17%; --sidebar-accent-foreground: 40 26% 94%; --sidebar-border: 40 26% 94% / .14; --sidebar-ring: 12 68% 61%;
+  }
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; font-family: "DM Sans", sans-serif; }
+}
+
+@layer components {
+  .shell { @apply mx-auto w-full max-w-[1180px] px-6 lg:px-10; }
+  .theme-toggle { @apply grid size-9 place-items-center rounded-full border border-ink/15 text-ink/70 transition-colors hover:border-ink/35 hover:bg-ink/[.04] hover:text-ink; }
+  .dark .job-preview { box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+  .dark .preview-card { background: hsl(var(--card) / .8); }
+  .dark #about { background: hsl(var(--secondary)); }
+  .dark .fit-card { background: hsl(var(--secondary)); }
+  .dark .text-ink\/45 { color: hsl(var(--foreground) / .62); }
+  .dark .text-ink\/50 { color: hsl(var(--foreground) / .68); }
+  .dark .text-ink\/55 { color: hsl(var(--foreground) / .74); }
+  .dark .text-ink\/60 { color: hsl(var(--foreground) / .8); }
+  .site-header { @apply sticky top-0 z-20 border-b border-ink/10 bg-paper/95 backdrop-blur-sm; }
+  .font-display { font-family: "Manrope", sans-serif; }
+  .eyebrow { @apply flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[.18em] text-ink/45; }
+  .button { @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all active:scale-[.98]; }
+  .button-dark { @apply bg-ink text-paper hover:bg-ink/85; }
+  .button-coral { @apply bg-coral text-white hover:bg-[#d96855]; }
+  .button-outline { @apply border border-ink/15 text-ink hover:border-ink/35 hover:bg-ink/[.03]; }
+  .avatar { @apply grid size-7 place-items-center rounded-full border-2 border-paper text-[10px] font-semibold text-ink/60; }
+  .company-mark { @apply grid size-11 shrink-0 place-items-center rounded-xl font-bold; font-family: "Manrope", sans-serif; }
+  .preview-card { @apply flex items-center gap-3 rounded-xl border border-ink/10 bg-white/70 p-3.5; }
+  .match { @apply rounded-md bg-[#e7f1e8] px-2 py-1 text-xs font-semibold text-[#43815b]; }
+  .job-row { @apply flex items-start gap-4 border-b border-ink/10 py-5 transition-colors first:border-t hover:bg-ink/[.025] md:items-center md:px-3; }
+  .tag { @apply rounded-md bg-ink/[.055] px-2 py-1 text-[11px] text-ink/55; }
+  .tag-large { @apply px-3 py-2 text-sm; }
+  .field { @apply h-11 w-full rounded-lg border border-ink/15 bg-transparent px-4 text-sm outline-none placeholder:text-ink/35 focus:border-coral; }
+  .filter-button { @apply flex h-11 items-center justify-between gap-8 rounded-lg border border-ink/15 px-4 text-sm text-ink/60 transition-colors hover:border-ink/35; }
+  .back-link { @apply inline-flex items-center gap-2 text-sm text-ink/50 transition-colors hover:text-ink; }
+  .section-title { @apply text-2xl font-semibold tracking-[-.04em]; font-family: "Manrope", sans-serif; }
+  .fit-card { @apply rounded-2xl border border-ink/10 bg-secondary p-6; }
+  .job-card { @apply relative flex flex-col gap-4 rounded-2xl border border-ink/10 bg-card p-5 transition-all hover:border-ink/25 hover:shadow-[0_14px_34px_rgba(25,30,26,.07)] sm:flex-row sm:items-start; }
+  .panel { @apply rounded-2xl border border-ink/10 bg-card p-6; }
+  .stat-card { @apply rounded-2xl border border-ink/10 bg-card p-5; }
+  .stat-value { @apply mt-2 text-3xl font-semibold tracking-[-.04em]; font-family: "Manrope", sans-serif; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-ink/12 px-3 py-1.5 text-xs font-medium text-ink/60 transition-colors hover:border-ink/30 hover:text-ink; }
+  .chip-active { @apply border-ink bg-ink text-paper hover:bg-ink hover:text-paper; }
+  .skill-pill { @apply inline-flex items-center rounded-md px-2.5 py-1 text-xs; }
+  .input-label { @apply block text-sm font-medium text-ink/70; }
+  .field-lg { @apply min-h-28 w-full rounded-lg border border-ink/15 bg-transparent px-4 py-3 text-sm outline-none placeholder:text-ink/35 focus:border-coral; }
+  .table-head { @apply border-b border-ink/10 text-[10px] font-semibold uppercase tracking-[.14em] text-ink/40; }
+  .modal-backdrop { @apply fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 backdrop-blur-sm; }
+  .modal-panel { @apply w-full max-w-lg overflow-hidden rounded-2xl border border-ink/10 bg-card shadow-[0_30px_80px_rgba(10,15,12,.35)]; }
+  .nav-pill { @apply rounded-lg px-3 py-2 text-sm font-medium text-ink/55 transition-colors hover:bg-ink/[.04] hover:text-ink; }
+  .nav-pill-active { @apply bg-ink/[.07] text-ink; }
+  .timeline-dot { @apply size-2.5 rounded-full border-2 border-card; }
+  .mono { font-variant-numeric: tabular-nums; }
+}

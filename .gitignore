@@ -1,0 +1,57 @@
+# Dependencies and package-manager state
+node_modules/
+.pnpm-store/
+
+# Build output and framework caches
+dist/
+dist-ssr/
+.vite/
+.cache/
+.tmp/
+.turbo/
+.vercel/
+.netlify/
+coverage/
+htmlcov/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local environment and runtime files
+*.local
+/.env
+/.env.*
+!/.env.example
+.private/
+
+# Python environments, caches, and build artifacts
+ml-service/.venv/
+ml-service/__pycache__/
+ml-service/.pytest_cache/
+ml-service/.mypy_cache/
+ml-service/.ruff_cache/
+*.py[cod]
+*.egg-info/
+
+# Editor and operating-system files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history/
+
+# Tooling caches
+.config/
+.eslintcache
+*.tsbuildinfo
